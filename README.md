@@ -1,5 +1,19 @@
 # MAAS On Virtual Box Setup
 
+## Table of Contents
+- [Virtual Box Setup](#virtual-box-setup)
+- [Install Ubuntu](#install-ubuntu)
+- [Install MAAS Server](#install-maas-server)
+- [Setup WebUI](#setup-webui)
+- [Setup DHCP Server](#setup-dhcp-server)
+- [Setup Nodes](#setup-nodes)
+  - [Virtual Box](#virtual-box)
+  - [WebUI](#webui)
+    - [Commissioning](#commissioning)
+    - [Deployment](#deployment)
+    - [Getting into the Machine](#getting-into-the-machine)
+- [SSH Keys](#ssh-keys)
+
 ## Virtual Box Setup
 #### Memory
 I used 4Gb but that's probably overkill
@@ -44,7 +58,7 @@ and now install maas
 sudo apt-get install maas
 ````
 
-## Set Up webUI
+## Setup WebUI
 With maas installed run the following to set up the webUI
 ````
 sudo maas createadmin
@@ -66,7 +80,7 @@ The webUI has now been setup
 
 Now would be a good time to reboot the server
 
-## Setting up the DHCP Server
+## Setup DHCP Server
 Now that the webUI is all setup, we need to setup the DHCP server to install our nodes. Navigate to the 'Subnet' tab at the top and then click on the 'VLAN' associated with the 192.168.1.0 network. Once there, click the 'Take Action' drop down menu and select 'Provide DHCP'. Leave all deafults and enable. The DHCP server is now set. To enusure that the server is on the correct network enter the following command:
 ````
 sudo dpkg-reconfigure maas-region-controller
@@ -75,7 +89,7 @@ and set the address to '192.168.1.1'
 
 reboot
 
-## Setting up Nodes
+## Setup Nodes
 #### Virtual Box
 When creating a new client, certain setting will need to be setup for on virtual box. Here we will demonstrate a setup for Ubuntu Server install
 
